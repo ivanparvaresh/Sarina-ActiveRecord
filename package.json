@@ -1,0 +1,32 @@
+{
+  "name": "sarina.activerecord",
+  "version": "1.0.1",
+  "description": "Sarina Active Record project",
+  "main": "activeRecord.js",
+  "keywords": [
+      "node",
+      "data",
+      "activeRecord",
+      "sarina"
+  ],
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "sarina":"^1.0.1",
+    "bookshelf":"^0.9.5",
+    "knex":"^0.11.5"
+  },
+  "devDependencies": {
+    "gulp":"~3.9.1",
+    "gulp-mocha":"~2.2.0",
+    "chai":"~3.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/javadparvaresh/Sarina-ActiveRecord.git"
+  },
+  "author": "javadparvaresh@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/javadparvaresh/Sarina-ActiveRecord/"
+}
