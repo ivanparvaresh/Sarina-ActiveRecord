@@ -1,6 +1,6 @@
 {
   "name": "sarina.activerecord",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Sarina Active Record project",
   "main": "activeRecord.js",
   "keywords": [
