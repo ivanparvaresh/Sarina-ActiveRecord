@@ -180,6 +180,7 @@ app.config("sarina.customConfig",["sarina.activerecord.provider"],function(provi
         .fetchOne() // return first matched record
         .fetchAll() // return all matched records
 
+        .query() // raw created query as string
     //....
 
 ```

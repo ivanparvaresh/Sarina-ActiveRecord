@@ -10,7 +10,7 @@ class Model {
         return this._attrs;
     }
     get query() {
-        return this._query;
+        return this._query.toString();
     }
 
     constructor(knex, schema, attrs,config) {
@@ -59,7 +59,7 @@ class Model {
     count() {
         var rThis = this;
         return new Promise(function (resolve, reject) {
-            var query = rThis.query
+            var query = rThis._query
                 .count();
             rThis._on("query", query);
             query.asCallback(function (err, result) {
@@ -101,7 +101,7 @@ class Model {
             if (attrs != null)
                 params = attrs;
 
-            var query = rThis.query.update(params);
+            var query = rThis._query.update(params);
             rThis._on("query", query);
             query.asCallback(function (err, result) {
                 if (err) {
@@ -122,7 +122,7 @@ class Model {
             if (attrs != null)
                 params = attrs;
 
-            var query = rThis.query.insert(params);
+            var query = rThis._query.insert(params);
             rThis._on("query", query);
             query.asCallback(function (err, result) {
                 if (err) {
@@ -142,7 +142,7 @@ class Model {
             if (attrs !=null )
                 params=attrs;
             
-            var query=rThis.query.remove(params);
+            var query=rThis._query.remove(params);
             rThis.on("query",query);
             query.asCallback(function(err,result){
                 if (err){
@@ -158,7 +158,7 @@ class Model {
     fetchOne() {
         var rThis = this;
         return new Promise(function (resolve, reject) {
-            var query = rThis.query;
+            var query = rThis._query;
             rThis._on("query", query);
             query.asCallback(function (err, result) {
                 if (err) {
@@ -176,7 +176,7 @@ class Model {
     fetchAll() {
         var rThis = this;
         return new Promise(function (resolve, reject) {
-            var query = rThis.query;
+            var query = rThis._query;
             rThis._on("query", query);
             query.asCallback(function (err, result) {
                 if (err) {
