@@ -1,21 +1,24 @@
 # Sarina.ActiveRecord
 
-Sarina ActiveRecord is a implemented designpattern for Sarina. Active record allows developer to deal with database based on models. 
-Sarina.ActiveRecord created by [JavadParvaresh](https://github.com/javadparvaresh).
+This plugin has implmeented ActiveRecord design pattern for sarina. 
+Plugin created by [JavadParvaresh](https://github.com/javadparvaresh).
 
-Sarina.ActiveRecord has build on top of [Knex](https://github.com/tgriesser/knex) and [bookshelf](https://github.com/tgriesser/bookshelf)
+> In software engineering, the active record pattern is an architectural pattern found in software that stores in-memory object data in relational databases. It was named by Martin Fowler in his 2003 book Patterns of Enterprise Application Architecture.[1] The interface of an object conforming to this pattern would include functions such as Insert, Update, and Delete, plus properties that correspond more or less directly to the columns in the underlying database table.([wikipedia](https://en.wikipedia.org/wiki/Active_record_pattern))
+
+Plugin has build on top of [Knex](https://github.com/tgriesser/knex) and [bookshelf](https://github.com/tgriesser/bookshelf).
 
 ## Table of contents
 - [Quick Start](#quick-start)
 - [Bugs and feature requests](#bugs-and-feature-requests)
+- [The Basics](#the-basics)
+- [The Configuration](#the-configuration)
+- [Apis](#apis)
 
 ## Quick start
 
 Several quick start options are available:
 - Clone the repo: `git clone https://github.com/javadparvaresh/Sarina-ActiveRecord.git`
 - Install with [npm](https://www.npmjs.com): `npm install sarinaactiverecord`
-
-Read the [Getting started page](/doc/quickstart.md) for information on the framework contents, templates and examples, and more.
 
 ## Bugs and feature requests
 
@@ -25,7 +28,7 @@ Have a bug or a feature request? [please open a new issue](https://github.com/ja
 ```javascript
 
 var sarina=require("sarina");
-var sarinaactiverecord=require("./../activerecord");
+var sarinaactiverecord=require("sarinaactiverecord");
 
 // create a sarina app by passing configuration
 var app=sarina.create({
@@ -150,8 +153,65 @@ app.config("sarina.customConfig",["sarina.activerecord.provider"],function(provi
             .create();
     });
 
-})
+});
 
 
 ```
 
+
+
+## Apis
+
+1. Query 
+```javascript
+
+    //....
+
+    new Model()
+        .where("column1","equalto") 
+        .where("column2","test") // an other where clause
+        .whereRaw("columnd3 >= :column3",value)
+        .orderBy("column4") // order by ascending
+        .orderByDesc("column4") // order by descending
+        .limit(1) // limiting fetched rows
+        .skip(2) // skip rows 
+
+        .count() // return count of Query
+        .fetchOne() // return first matched record
+        .fetchAll() // return all matched records
+
+    //....
+
+```
+
+2. Manipulating Data
+```javascript
+
+    // ...
+
+    // Insert or Update
+    new Model({
+        Column1 : "New Value"
+    }).where("id",1)
+    .save();
+
+    // Insert
+    new Model({
+        Column1 : "New Value"
+    })
+    .insert();
+
+    // Update
+    new Model({
+        Column1 : "New Value"
+    }).where("id",1)
+    .update();
+
+    // Remove
+    new Model()
+        .where("id",1)
+        .remove();
+
+    // ...
+
+```
