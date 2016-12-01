@@ -15,7 +15,8 @@
   "dependencies": {
     "sarina":"^1.0.1",
     "bookshelf":"^0.9.5",
-    "knex":"^0.11.5"
+    "knex":"^0.11.5",
+    "mysql":"^2.12.0"
   },
   "devDependencies": {
     "gulp":"~3.9.1",

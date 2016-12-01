@@ -234,6 +234,7 @@ class Schema {
         this.tableName = "TABLE_NAME";
         this.columns = [];
         this.events = [];
+        this.configName="";
     }
     config(name){
         this.configName= name;
@@ -297,9 +298,18 @@ module.exports = function (sarina) {
     sarina.service("knex.provider",function () {
         return {
             create:function(config){
-                return knex({
+
+                var pool={
+                    min:0,
+                    max:7
+                };
+                if (config.pool!=null)
+                    pool=config.pool;
+
+                return new knex({
                     client:config.client,
-                    connection:config.connection
+                    connection:config,
+                    pool: pool
                 });
             }
         };
@@ -312,8 +322,12 @@ module.exports = function (sarina) {
         return {
             define: function () {
                 var schema = new Schema();
-                schema.create = function (atts) {
-                    return new Model(knex, schema, atts);
+                schema.create = function () {
+                    return function(atts){
+                        var knex=
+                        knexProvider.create( config.get(schema.configName) );
+                        return new Model(knex, schema, atts);
+                    }
                 }
                 return schema;
             }
