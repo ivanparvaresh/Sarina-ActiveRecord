@@ -1,6 +1,6 @@
 # Sarina.ActiveRecord
 
-This plugin has implmeented ActiveRecord design pattern for sarina. 
+This plugin has implemented ActiveRecord design pattern for sarina. 
 Plugin created by [JavadParvaresh](https://github.com/javadparvaresh).
 
 > In software engineering, the active record pattern is an architectural pattern found in software that stores in-memory object data in relational databases. It was named by Martin Fowler in his 2003 book Patterns of Enterprise Application Architecture.[1] The interface of an object conforming to this pattern would include functions such as Insert, Update, and Delete, plus properties that correspond more or less directly to the columns in the underlying database table.([wikipedia](https://en.wikipedia.org/wiki/Active_record_pattern))
@@ -18,7 +18,7 @@ Plugin has build on top of [Knex](https://github.com/tgriesser/knex) and [booksh
 
 Several quick start options are available:
 - Clone the repo: `git clone https://github.com/javadparvaresh/Sarina-ActiveRecord.git`
-- Install with [npm](https://www.npmjs.com): `npm install sarinaactiverecord`
+- Install with [npm](https://www.npmjs.com): `npm install sarina.activerecord`
 
 ## Bugs and feature requests
 
